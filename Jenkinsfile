@@ -6,7 +6,7 @@ node {
         commit_id = readFile('.git/commit-id').trim()
     }
     stage('Docker build/push'){
-        docker.withRegisty('https://index.docker.io/v1/', 'dockerhub'){
+        docker.withRegistry('https://index.docker.io/v1/', 'dockerhub'){
             def app = docker.build("stirenbenzen/my-jenkins-cicd:${commit_id}", '.').push
         }
     }
