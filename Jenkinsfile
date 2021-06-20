@@ -7,7 +7,7 @@ node {
     }
     stage('Docker build/push'){
         docker.withRegistry('https://index.docker.io/v1/', 'dockerhub'){
-            def app = docker.build("stirenbenzen/my-jenkins-cicd:${commit_id}", '.').push
+            def app = docker.build("stirenbenzen/my-jenkins-cicd:${commit_id}", '.').push()
         }
     }
 }
